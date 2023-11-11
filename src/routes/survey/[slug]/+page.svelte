@@ -8,9 +8,9 @@
   $: errorMessage = "";
   let url = $page.params;
 
+
   const updateUrl = (e) => {
     url = $page.params;
-    console.log(url);
     handleNextQuestionClick(url, userResponse, e);
 
     if (selectedRadioValue) {
@@ -32,8 +32,11 @@
 </script>
 
 <main>
-  <section>beepboop</section>
-
+  {#if data.img}
+    <section>
+      <img src="" alt="" />
+    </section>
+  {/if}
   <section>
     {#if data.hasOwnProperty("options")}
       <fieldset>
@@ -71,6 +74,7 @@
       /><br />
       {errorMessage}
     {/if}
+
     {#if data.links}
       <p>
         <a
@@ -78,10 +82,7 @@
           href={(selectedRadioValue === "Laptop/Desktop"
             ? data.links[0]
             : data.links[1]) || data.links[0]}
-          on:click={updateUrl}
-          >{(selectedRadioValue === "Laptop/Desktop"
-            ? data.links[0]
-            : data.links[1]) || data.links[0]}</a
+          on:click={updateUrl}>Next</a
         >
       </p>
     {:else}
@@ -91,7 +92,7 @@
             <input type="hidden" name={`response${i + 1}`} value={response} />
           {/each}
         {/if}
-        <button>Submit</button>
+        <button type="submit" class="bg-black">Submit</button>
       </form>
     {/if}
   </section>

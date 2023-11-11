@@ -17,6 +17,12 @@ export function load({ params }) {
         "/survey/question-4",
         "/survey/thank-you",
       ],
+      img: [
+        {
+          src: "",
+          alt: "",
+        },
+      ],
     };
   }
   if (params.slug === "question-1") {
@@ -27,6 +33,10 @@ export function load({ params }) {
         "Where would you prefer to shop for bath/body care products for yourself/others?",
       options: ["Laptop/Desktop", "Mobile App", "In Store"],
       links: ["/survey/instruction"],
+      img: {
+        src: "@/lib/images/subscription-image.jpg",
+        alt: "Lush's new subscription boxes",
+      },
     };
   }
   if (params.slug === "instruction") {
@@ -40,6 +50,10 @@ export function load({ params }) {
 
      <p> You have just clicked on the search bar at the top of their app or website. You would see one of either of the following screens. Answer the following questions...</p>`,
       links: ["/survey/desktop-1", "/survey/mobile-1"],
+      img: {
+        desktop: { src: "", alt: "" },
+        mobile: { src: "", alt: "" },
+      },
     };
   }
   if (params.slug === "desktop-1") {
@@ -51,6 +65,10 @@ export function load({ params }) {
         "How easy/clear is it to search for a product or fragrance on the example screen? Describe why or why not.",
       text: `Your answer here...`,
       links: ["/survey/desktop-2"],
+      img: {
+        src: "@/lib/images/desktop-lush-option-1.png",
+        alt: "Lush option desktop",
+      },
     };
   }
   if (params.slug === "desktop-2") {
@@ -62,6 +80,10 @@ export function load({ params }) {
         "How easy/clear is it to search for a product or fragrance on the example screen? Describe why or why not.",
       text: `Your answer here...`,
       links: ["/survey/question-4"],
+      img: {
+        src: "@/lib/images/desktop-lush-option-2.png",
+        alt: "Lush option desktop",
+      },
     };
   }
   if (params.slug === "mobile-1") {
@@ -73,27 +95,43 @@ export function load({ params }) {
         "How easy/clear is it to search for a product or fragrance on the example screen? Describe why or why not.",
       text: `Your answer here...`,
       links: ["/survey/mobile-2"],
+      img: {
+        src: "@/lib/images/mobile-lush-option-2.png",
+        alt: "Lush option mobile",
+      },
     };
   }
   if (params.slug === "mobile-2") {
     return {
       id: "mobile-2",
       name: "response2",
-      image: "",
       question:
         "How easy/clear is it to search for a product or fragrance on the example screen? Describe why or why not.",
       text: `Your answer here...`,
       links: ["/survey/question-4"],
+      img: {
+        src: "@/lib/images/mobile-lush-option-1.png",
+        alt: "Lush option mobile",
+      },
     };
   }
   if (params.slug === "question-4") {
     return {
       id: "preference-question",
       name: "preference-question",
-      image: ["", ""],
       question: "Which design did you prefer?",
       options: ["option-1", "option-2"],
       text: `Your answer here...`,
+      img: {
+        desktop: {
+          src: "@/lib/images/desktop-lush-option-2.png",
+          alt: "Lush options",
+        },
+        mobile: {
+          src: "@/lib/images/desktop-lush-option-2.png",
+          alt: "Lush options",
+        },
+      },
     };
   }
   if (params.slug === "thank-you") {
@@ -104,6 +142,10 @@ export function load({ params }) {
       question: "Thank you for your participation 🤩",
       instructions: `<p>Your results have been recorded</p>`,
       //   links: ["/results"],
+      img: {
+        src: "",
+        alt: "",
+      },
     };
   }
   if (params.slug === "results") {
@@ -112,6 +154,10 @@ export function load({ params }) {
       name: "results",
       image: ["", ""],
       // links: ["/results"],
+      img: {
+        src: "",
+        alt: "",
+      },
     };
   }
 

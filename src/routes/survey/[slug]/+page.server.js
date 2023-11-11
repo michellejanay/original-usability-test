@@ -3,15 +3,25 @@ import { v4 as uuidv4 } from "uuid";
 import { db } from "$lib/database";
 import { fail, redirect } from "@sveltejs/kit";
 
+const addResponse = async (userResponse) => {
+  console.log(userResponse);
+  console.log(db);
+  const dbRespones = await db.query(`select * from responses`);
+  console.log(dbRespones);
+};
+
 export const actions = {
-  default: async (event) => {
-    // const { responses } = await event.request.json();
-    // console.log(responses);
-    // responses.id = uuidv4();
+  default: async ({ request }) => {
+    const responses = await request.formData();
+    console.log(responses);
+    db.connect();
 
-    // redo
-
-    console.log("success");
-    throw redirect(303, "/survey/thank-you");
+    try {
+      addResponse(responses);
+      console.log("success");
+      throw redirect(303, "/survey/thank-you");
+    } catch (error) {
+      console.log(error);
+    }
   },
 };
