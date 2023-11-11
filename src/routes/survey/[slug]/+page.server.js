@@ -22,6 +22,6 @@ export const actions = {
       throw redirect(303, "/survey/thank-you");
     } catch (error) {
       console.log(error);
-    }
+    } 
   },
 };
